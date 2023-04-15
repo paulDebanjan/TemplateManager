@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div id="content-part">
+    <h1 style="text-transform: uppercase;">About</h1>
+    {{posts}}
+    {% for a in aboutArticels %}
+        <header><h2 style="text-transform: capitalize;">{{a.title}}</h2></header>
+        <p>{{a.description}}</p>
+    {% endfor %}
+</div>
+<div id="my-data" data-my-data="{{ serialized_data }}"></div>
+{% endblock content %}

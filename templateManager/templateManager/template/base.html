@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSite Name | {{NavbarName|title}}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    
+
+    <nav>
+        <div id="navbar-part">
+            <div id="navbar-inner-div">
+                <div id="web-logo">
+                    <h3><a href="{% url 'home' %}"><span id="logo-style-one"></span> <span id="logo-style-two"></span></a></h3>
+                </div>
+                {% block navbar %}
+                {% endblock navbar %}
+                
+                <div id="nev-foot-extra-option">
+                    <a href="{% url 'work' %}" class="extra-option-style">Work</a>
+                </div>
+            </div>
+        </div>
+        {% block content%}  
+        {% endblock content%}
+        <div id="footer-part">
+            <div id="footer-inner-div">
+                <div id="footer-extra-option">
+                    <div id="option-outer">
+                        <div id="option-div">
+                        
+                        </div>
+                    </div>
+                    <a href="{% url 'about' %}" class="extra-option-style">About</a>
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+
+      
+  <div class="popup">
+    <img src="">
+    <span class="close">&times;</span>
+  </div>
+  <script src="{% static 'js/design.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

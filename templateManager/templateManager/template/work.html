@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block navbar %}
+<div id="my-data" data-my-data="{{ serialized_data }}"></div>
+<div id="nav-menu-options">
+    <ul>
+        <li class="navoption"><a class="navOption"  href="{% url 'home' %}">Home</a></li>
+        {% for option in navOptions %}
+        <li class="navoption"><a class="navOption" href="/{{option}}">{{option}}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock navbar %}
+
+{% block content %}
+<div id="content-part">
+    {% for post in posts %}
+    <article>
+        <header><h2>{{post.title | title}}</h2></header>
+        <p>{{post.pragraphOne}}</p>
+        <img src="/media/{{post.main_image}}" alt="image1">
+        <div id="extra-images">
+            {% for extra in extra_photos %}
+            {% if extra.post ==  post %}
+            <div id="image_div">
+                <img src="/media/{{extra.photo}}" alt="" width="120px">
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <p>{{post.pragraphTwo}}</p>
+    </article>
+    {% endfor %}
+</div>
+
+{% endblock content %}
